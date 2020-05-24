@@ -1,4 +1,4 @@
-# Getting-and-Cleaning-Data-Course-Project
+                                     # Getting-and-Cleaning-Data-Course-Project
 
 This repo is a submission by Ankit Mehra for the "Getting and Cleaning Data Course Project" of John Hopkins University Data science
 Specialization at Coursera.It has following files on how to get and clean data on "Human Activity Recognition Using Smartphone Dataset"
