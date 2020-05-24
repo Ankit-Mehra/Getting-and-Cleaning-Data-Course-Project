@@ -1,0 +1,90 @@
+---
+title: "codebook"
+author: "Ankit Mehra"
+date: "24/05/2020"
+output: html_document
+---
+# Download File
+  
+  The Download Data.R file download the files and extract under file UCI HAR Dataset
+
+# Reading datasets and giving coloumn names
+  
+  features <- features.txt ( 561 entries, 2 total columns)
+  Reads the features .txt file into a table ,give column names to variables ,this file basically contains the various measrements and are used as     coulmn names in the combined data set.
+  
+  activity <- activity_labels.txt (6 entries, 2 total columns)
+  Reads the activities text file into a table .It contains a coulmn with the type of activities performed by the subject.
+  
+  subjecttest <- subject_test.txt (2,947 entries, 1 total columns)
+  Reads the Subject text file into a table.It contains test data of 9/30 volunteer test subjects being observed.
+  
+  x_test <- X_test.txt ( 2,947 entries, 561 total columns)
+  Read the  X test text file into a table . It conatins the test data.
+  
+  y_test <- y_test.txt(2,947 entries, 1 total columns)
+  Read the Y test text file into a table . It contains test data of activities’code labels.
+  
+  subjecttrain <- subject_train.txt(7,352 entries, 1 total columns)
+  Read the subject train text file into a table .It contains train data of 21/30 volunteer subjects being observed
+  
+  x_train <- X_train.txt  ( 7,352 entries, 561 total columns)
+  Reads the X train text file into a table .It contains recorded features train data.
+  
+  y_train <- y_train.txt(7,352 entries, 1 total columns)
+  Read the Y train text data into a table .It contains train data of activities’code labels.
+
+# Merges the training and the test sets to create one data set. 
+  
+  Xtrain_test   (10,299 entries, 561 total columns) is created by merging x_train and x_test using rbind() function
+  Ytrain_test   (10,299 entries, 1 total columns)   is created by merging y_train and y_test using rbind() function
+  Subject       (10,299 entries, 1 total columns)   is created by merging subject_train and subject_test using rbind() function
+  combined_data (10,299 entries, 563 total columns) is created by merging Subject, Ytrain_test and Xtrain_test using cbind() function
+ 
+# Extracts only the measurements on the mean and standard deviation for each measurement. 
+  
+  Tidy_data     (10,299 entries, 88 total columns)  is created by subsetting combined_data , selecting only columns: 
+  subject, code and the measurements on the mean and standard deviation (std) for each measurement.
+ 
+# Uses descriptive activity names to name the activities in the data set
+  
+  Codes in code column of the Tidy_data replaced with corresponding activity taken from second column of the activity variable.
+   
+# Appropriately labels the data set with descriptive variable names.
+  
+  "subject" coulmn in Tidy_data renamed  "Subject"
+  "code"    coulmn in Tidy_data renamed  "Activities"
+   "^t"     coulmn in Tidy_data renamed  "Time"
+  "^f",     coulmn in Tidy_data renamed  "Frequency"
+  "Acc"     coulmn in Tidy_data renamed  "Accelerometer"
+  "Gyro"    coulmn in Tidy_data renamed  "Gyroscope"
+  "angle"   coulmn in Tidy_data renamed  "Angle"
+  "gravity" coulmn in Tidy_data renamed  "Gravity"
+  "Mag"     coulmn in Tidy_data renamed  "Magnitude"
+  "BodyBody"coulmn in Tidy_data renamed  "Body"
+  ".mean"," coulmn in Tidy_data renamed  ".Mean"
+  ".std"    coulmn in Tidy_data renamed  ".STD"
+  "tBody"   coulmn in Tidy_data renamed  "TimeBody"
+  "...X"    coulmn in Tidy_data renamed  ".X"
+  "...Y"    coulmn in Tidy_data renamed  ".Y"
+  "...Z"    coulmn in Tidy_data renamed  ".Z"
+ 
+# From the data set in step 4, creating a second, independent tidy data set with the average of
+# each variable for each activity and each subject.
+
+   Final_data(180 entries, 88 total columns) groups the Tidy_data by the subject and then by activity column and the by using piping 
+   subsequent data is summarised.
+   
+# Creating txt file with write.table() using row.name=FALSE     
+    
+    Final_data.txt is the text file containing the final data in text format  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
