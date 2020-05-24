@@ -11,7 +11,7 @@ output: html_document
 # Reading datasets and giving coloumn names
   
   features <- features.txt ( 561 entries, 2 total columns)
-  Reads the features .txt file into a table ,give column names to variables ,this file basically contains the various measrements and are used as     coulmn names in the combined data set.
+  Reads the features .txt file into a table ,give column names to variables ,this file basically contains the various measrements and     are used as coulmn names in the combined data set.
   
   activity <- activity_labels.txt (6 entries, 2 total columns)
   Reads the activities text file into a table .It contains a coulmn with the type of activities performed by the subject.
